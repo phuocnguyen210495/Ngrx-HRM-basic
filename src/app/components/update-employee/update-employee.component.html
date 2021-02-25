@@ -1,0 +1,49 @@
+<form nz-form [formGroup]="updateForm" (ngSubmit)="updateEmployee()">
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="name" nzRequired>Họ Tên
+    </nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your nickname!">
+      <input nz-input id="name" formControlName="name" placeholder="Name" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+      <input nz-input formControlName="email" id="email" placeholder="Email" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="Started working" nzRequired>Ngày bắt đằu</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please choose a date!">
+      <nz-date-picker formControlName="date"></nz-date-picker>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="number" nzRequired>Số điện thoại</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please add phone number!">
+      <input nz-input id="number" formControlName="number" placeholder="Phone number" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="skills" nzRequired>Skills</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please add skills!">
+      <input nz-input id="skills" formControlName="skills" placeholder="skills" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <!-- <nz-form-item nz-row>
+    <nz-form-control [nzSpan]="14" [nzOffset]="6">
+      <button nz-button nzType="primary">
+        Cập Nhật Nhân viên
+      </button>
+    </nz-form-control>
+  </nz-form-item> -->
+  <div class="btn-footer">
+    <button nz-button style="margin-right: 8px;" (click)="close()">Thoát</button>
+    <button nz-button nzType="primary">Xác nhận</button>
+  </div>
+</form>

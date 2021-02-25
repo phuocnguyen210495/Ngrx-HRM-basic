@@ -1,0 +1,52 @@
+{
+  "employees": [
+    {
+      "name": "hades",
+      "email": "hades_kre@gmail.com",
+      "date": "2019-09-10T11:58:38.481Z",
+      "number": "7894523",
+      "skills": "back-end",
+      "id": 1
+    },
+    {
+      "name": "phuocnguyendzIT",
+      "email": "changngositinh1995@gmail.com",
+      "date": "2020-12-09T04:07:12.728Z",
+      "number": "7892",
+      "skills": "ruby",
+      "id": 5
+    },
+    {
+      "name": "Phuoc nguyen",
+      "email": "changngositinh1995@gmail.com",
+      "date": "2021-02-18T10:02:38.298Z",
+      "number": "7894523",
+      "skills": "back-end",
+      "id": 6
+    },
+    {
+      "name": "dũng hồ",
+      "email": "dungho@gmail.com",
+      "date": "2021-02-06T01:40:04.824Z",
+      "number": "01234789",
+      "skills": "php",
+      "id": 10
+    },
+    {
+      "name": "Nguyễn Huỳnh",
+      "email": "nguyenhuynh@outlook.com",
+      "date": "2021-02-01T02:54:18.625Z",
+      "number": "012894523",
+      "skills": "mongDB",
+      "id": 11
+    },
+    {
+      "name": "hùng thuận",
+      "email": "PhuocNguyen@sellpixels.com",
+      "date": "2021-02-28T04:22:10.273Z",
+      "number": "0123451234",
+      "skills": "front-end",
+      "id": 12
+    }
+  ]
+}
