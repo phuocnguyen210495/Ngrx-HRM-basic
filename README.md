@@ -1,6 +1,11 @@
 ## employee-managment-system
 
-Employee Managment System is Angular CRUD application created for managing data. I builded it so I can practice creating CRUD apps in Angular
+Employee Managment System is Angular CRUD application created for managing data. I builded it so I can practice creating CRUD apps in Angular. Using Ngrx: 
++ Managing global and local state.
++ Isolation of side effects to promote a cleaner component architecture.
++ Entity collection management.
++ Integration with the Angular Router.
++ Developer tooling that enhances developer experience when building many different types of applications.
 
 
 
