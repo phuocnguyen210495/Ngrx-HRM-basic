@@ -2,27 +2,36 @@
   <i nz-icon nzType="plus" nzTheme="outline"></i>
   Thêm Nhân Viên
 </button>
-<nz-table #basicTable [nzData]="employees">
+<br />
+<nz-table nzTitle="Danh sách nhân viên" #rowSelectionTable nzBordered nzShowPagination nzShowSizeChanger
+  [nzShowPagination]="true" style="text-align: center" nzSize="default" [nzData]="employees$ | async"
+  [nzFrontPagination]="false" [nzLoading]="loading" [nzTotal]="total" [nzPageSize]="pageSize" [nzPageIndex]="pageIndex">
   <thead>
     <tr>
-      <th>Họ Tên</th>
-      <th>Email</th>
-      <th>Ngày bắt đầu</th>
-      <th>Số điện thoại</th>
-      <th>Skills</th>
+      <th style="text-align: center" nzWidth="10%">Họ Tên</th>
+      <th style="text-align: center" nzWidth="25%">Email</th>
+      <th style="text-align: center" nzWidth="10%">Ngày bắt đầu</th>
+      <th style="text-align: center" nzWidth="10%">Số điện thoại</th>
+      <th style="text-align: center" nzWidth="10%">Skills</th>
+      <th style="text-align: center" nzRight nzWidth="10%">Action</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td colspan="5" class="alert alert-danger" *ngIf="error$ | async as error">{{error}}</td>
+      <td colspan="5" class="alert alert-danger" *ngIf="error$ | async as error">
+        {{ error }}
+      </td>
     </tr>
-    <tr *ngFor="let employee of (employees$ | async)">
+    <tr *ngFor="let employee of employees$ | async">
       <td>{{ employee.name }}</td>
       <td>{{ employee.email }}</td>
       <td>{{ employee.date | date: 'mediumDate' }}</td>
       <td>{{ employee.number }}</td>
-      <td>{{ employee.skills }}</td>
       <td>
+        {{ employee.skills }}
+        <nz-progress [nzPercent]="employee.skill_Percent" nzStatus="active" nzStrokeColor="#1890ff"></nz-progress>
+      </td>
+      <td style="text-align: center">
         <button nz-button title="Edit" nzType="primary" (click)="update(employee.id)">
           <i nz-icon nzType="edit" nzTheme="outline"></i>
         </button>

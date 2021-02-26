@@ -12,6 +12,7 @@ import { Store } from '@ngrx/store';
 import * as employeeActions from 'src/app/store/employees/employees.actions';
 import * as fromEmployee from '../../store/employees/employees.reducer';
 import { Employee } from 'src/app/models/employee.model';
+import { skills } from './skills';
 @Component({
   selector: 'app-create-employee',
   templateUrl: './create-employee.component.html',
@@ -19,7 +20,7 @@ import { Employee } from 'src/app/models/employee.model';
 })
 export class CreateEmployeeComponent implements OnInit {
   public employeeForm: FormGroup;
-
+  _skills = skills;
   constructor(
     public empService: EmployeeService,
     public router: Router,
@@ -35,6 +36,8 @@ export class CreateEmployeeComponent implements OnInit {
       date: [null, Validators.required],
       number: [null, Validators.required],
       skills: [null, Validators.required],
+      skill_Percent: [null, Validators.required],
+      image: [null, Validators.required],
     });
   }
   /* dùng service */
@@ -56,6 +59,8 @@ export class CreateEmployeeComponent implements OnInit {
       date: this.employeeForm.get('date').value,
       number: this.employeeForm.get('number').value,
       skills: this.employeeForm.get('skills').value,
+      skill_Percent: this.employeeForm.get('skill_Percent').value,
+      image: this.employeeForm.get('image').value,
     };
     this.store.dispatch(new employeeActions.CreateEmployee(newEmployee));
     this.drawerRef.close();

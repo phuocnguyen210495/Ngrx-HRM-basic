@@ -1,3 +1,10 @@
+<div class="align">
+  <nz-avatar [nzSize]="120" [nzSrc]="
+      img ||
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh5yhHefZ6cZSU6AItEGWIjCQoZ7XlKYC7lQ&usqp=CAU'
+    " nzIcon="user" class="img-font" nzIconTheme="outline">
+  </nz-avatar>
+</div>
 <form nz-form [formGroup]="updateForm" (ngSubmit)="updateEmployee()">
   <nz-form-item>
     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="name" nzRequired>Họ Tên
@@ -30,8 +37,18 @@
 
   <nz-form-item>
     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="skills" nzRequired>Skills</nz-form-label>
-    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please add skills!">
+    <nz-form-control [nzSm]="10" [nzXs]="24" nzErrorTip="Please add skills!">
       <input nz-input id="skills" formControlName="skills" placeholder="skills" />
+    </nz-form-control>
+    <nz-form-control [nzSm]="4" [nzXs]="24" nzErrorTip="Please add Skill Percent!">
+      <input nz-input id="skill_Percent" formControlName="skill_Percent" placeholder="Skill Percent" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="image" nzRequired>Image</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please add image!">
+      <input nz-input id="image" formControlName="image" placeholder="image" />
     </nz-form-control>
   </nz-form-item>
 
@@ -43,7 +60,7 @@
     </nz-form-control>
   </nz-form-item> -->
   <div class="btn-footer">
-    <button nz-button style="margin-right: 8px;" (click)="close()">Thoát</button>
+    <button nz-button style="margin-right: 8px" (click)="close()">Thoát</button>
     <button nz-button nzType="primary">Xác nhận</button>
   </div>
 </form>

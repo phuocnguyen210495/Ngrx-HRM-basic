@@ -19,6 +19,13 @@ export class EmployeeListComponent implements OnInit {
   public employees: Employee[] = [];
   employees$: Observable<Employee[]>;
   error$: Observable<String>;
+  pageSize = 5;
+  pageIndex = 1;
+  loading = true;
+  total = 1;
+  sortName = null;
+  sortValue = null;
+
   constructor(
     public service: EmployeeService,
     public router: Router,
@@ -31,10 +38,22 @@ export class EmployeeListComponent implements OnInit {
     this.store.dispatch(new employeeActions.LoadEmployees());
     this.employees$ = this.store.pipe(select(fromEmployee.getEmployees));
     this.error$ = this.store.pipe(select(fromEmployee.getError));
+    setTimeout(() => {
+      this.pageSize;
+      this.pageIndex;
+      this.loading = false;
+    }, 3000);
     // console.log(this.employees$, this.error$);
     // this.loadEmployees();
   }
-
+  // onQueryParamsChange(params: NzTableQueryParams): void {
+  //     console.log(params);
+  //     const { pageSize, pageIndex, sort, filter } = params;
+  //     const currentSort = sort.find(item => item.value !== null);
+  //     const sortField = (currentSort && currentSort.key) || null;
+  //     const sortOrder = (currentSort && currentSort.value) || null;
+  //     this.loadDataFromServer(pageIndex, pageSize, sortField, sortOrder, filter);
+  //   }
   loadEmployees() {
     return this.service.getEmployees().subscribe((data) => {
       this.employees = data;

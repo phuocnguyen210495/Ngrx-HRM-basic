@@ -7,6 +7,7 @@ import * as employeeActions from 'src/app/store/employees/employees.actions';
 import * as fromEmployee from '../../store/employees/employees.reducer';
 import { Employee } from 'src/app/models/employee.model';
 import { Observable } from 'rxjs';
+import { NzDrawerRef } from 'ng-zorro-antd';
 @Component({
   selector: 'app-update-employee',
   templateUrl: './update-employee.component.html',
@@ -15,9 +16,10 @@ import { Observable } from 'rxjs';
 export class UpdateEmployeeComponent implements OnInit {
   id = this.actRoute.snapshot.params['id'];
   updateForm: FormGroup;
-
+  img: string;
   constructor(
     private service: EmployeeService,
+    private drawerRef: NzDrawerRef,
     private router: Router,
     private store: Store<fromEmployee.AppState>,
     private actRoute: ActivatedRoute
@@ -28,6 +30,8 @@ export class UpdateEmployeeComponent implements OnInit {
       date: new FormControl(),
       number: new FormControl(),
       skills: new FormControl(),
+      image: new FormControl(),
+      skill_Percent: new FormControl(),
       id: new FormControl(),
     });
   }
@@ -52,8 +56,11 @@ export class UpdateEmployeeComponent implements OnInit {
           date: currentEmployee.date,
           number: currentEmployee.number,
           skills: currentEmployee.skills,
+          image: currentEmployee.image,
+          skill_Percent: currentEmployee.skill_Percent,
           id: currentEmployee.id,
         });
+        this.img = currentEmployee.image;
       }
     });
   }
@@ -71,10 +78,17 @@ export class UpdateEmployeeComponent implements OnInit {
       date: this.updateForm.get('date').value,
       number: this.updateForm.get('number').value,
       skills: this.updateForm.get('skills').value,
+      image: this.updateForm.get('image').value,
+      skill_Percent: this.updateForm.get('skill_Percent').value,
       id: this.updateForm.get('id').value,
     };
-    console.log(updatedEmployee);
+
+    // console.log(updatedEmployee);
     this.store.dispatch(new employeeActions.UpdateEmployee(updatedEmployee));
-    this.router.navigate(['/employee-list']);
+    this.drawerRef.close();
+    // this.router.navigate(['/employee-list']);
+  }
+  close(): void {
+    this.drawerRef.close();
   }
 }

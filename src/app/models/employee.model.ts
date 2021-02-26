@@ -5,4 +5,6 @@ export class Employee {
   date: string;
   number: number;
   skills: string;
+  image?: string;
+  skill_Percent: string;
 }
